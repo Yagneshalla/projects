@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Quiz App</h1>
+            <div id="timer">Time Left: <span id="time">60</span>s</div>
+            <div id="score">Score: 0</div>
+        </div>
+        <div id="question-container">
+            <div id="question">Question text</div>
+            <div id="answer-buttons" class="btn-container">
+            </div>
+        </div>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <button id="prev-btn" class="btn">previous</button>
+        <button id="next-btn" class="btn">Next</button>
+        <div id="high-scores-container">
+            <h2>High Scores</h2>
+            <ul id="high-scores-list"></ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
