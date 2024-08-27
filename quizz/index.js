@@ -87,9 +87,16 @@ function showQuestion(question) {
         const button = document.createElement('button');
         button.innerText = answer.text;
         button.classList.add('btn');
-        button.addEventListener('click', () => selectAnswer(answer));
+        button.addEventListener('click', () => {
+            answer = selectAnswer(answer)
+        });
         answerButtonsElement.appendChild(button);
     });
+    button.addEventListener("change", () => {
+        if (answer.value != "") {
+            button.style.display = 'block';
+        }
+    })
 }
 
 function selectAnswer(answer) {
