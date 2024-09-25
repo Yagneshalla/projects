@@ -1,22 +1,22 @@
 const questions = [{
         category: "WEB DEVELOPMENT",
-        question: "what is the full form of HTML?",
+        question: "What is the full form of HTML?",
         answers: [
             { text: "Hyper text markup language", correct: true },
             { text: "Hyper text makeup language", correct: false },
             { text: "Hyper text machine language", correct: false },
-            { text: "Hyper text machine learning", correct: false }
-        ]
+            { text: "Hyper text machine learning", correct: false },
+        ],
     },
     {
         category: "WEB DEVELOPMENT",
-        question: "full form of CSS?",
+        question: "Full form of CSS?",
         answers: [
-            { text: "c styling sheet", correct: false },
-            { text: "cascading style sheets", correct: true },
-            { text: "cascading stylo sheets", correct: false },
-            { text: "cascading structured sheets", correct: false }
-        ]
+            { text: "C styling sheet", correct: false },
+            { text: "Cascading Style Sheets", correct: true },
+            { text: "Cascading Stylo Sheets", correct: false },
+            { text: "Cascading Structured Sheets", correct: false },
+        ],
     },
     {
         category: "WEB DEVELOPMENT",
@@ -25,28 +25,28 @@ const questions = [{
             { text: "data types", correct: false },
             { text: "prototypes", correct: false },
             { text: "statements", correct: false },
-            { text: "keywords", correct: true }
-        ]
+            { text: "keywords", correct: true },
+        ],
     },
     {
         category: "GENERAL KNOWLEDGE",
-        question: "who is captain of indian cricket team?",
+        question: "Who is the captain of the Indian cricket team?",
         answers: [
-            { text: "virat kohli", correct: false },
-            { text: "rohit sharma", correct: true },
-            { text: "vamsi paidi", correct: false },
-            { text: " vishnu", correct: false }
-        ]
+            { text: "Virat Kohli", correct: false },
+            { text: "Rohit Sharma", correct: true },
+            { text: "Vamsi Paidi", correct: false },
+            { text: "Vishnu", correct: false },
+        ],
     },
     {
         category: "GENERAL KNOWLEDGE",
-        question: "capital city of telengana?",
+        question: "Capital city of Telangana?",
         answers: [
-            { text: "delhi", correct: false },
+            { text: "Delhi", correct: false },
             { text: "Hyderabad", correct: true },
-            { text: "chennai", correct: false },
-            { text: "banglore", correct: false }
-        ]
+            { text: "Chennai", correct: false },
+            { text: "Bangalore", correct: false },
+        ],
     },
 ];
 
@@ -55,15 +55,15 @@ let score = 0;
 let timeLeft = 60;
 let timerId;
 
-const questionContainerElement = document.getElementById('question-container');
-const questionElement = document.getElementById('question');
-const answerButtonsElement = document.getElementById('answer-buttons');
-const previousbutton = document.getElementById('prev-btn');
-const nextButton = document.getElementById('next-btn');
-const progressBar = document.getElementById('progress-bar');
-const timeElement = document.getElementById('time');
-const scoreElement = document.getElementById('score');
-const highScoresList = document.getElementById('high-scores-list');
+const questionContainerElement = document.getElementById("question-container");
+const questionElement = document.getElementById("question");
+const answerButtonsElement = document.getElementById("answer-buttons");
+const previousButton = document.getElementById("prev-btn");
+const nextButton = document.getElementById("next-btn");
+const progressBar = document.getElementById("progress-bar");
+const timeElement = document.getElementById("time");
+const scoreElement = document.getElementById("score");
+const highScoresList = document.getElementById("high-scores-list");
 
 function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
@@ -72,9 +72,9 @@ function startQuiz() {
     timeLeft = 60;
     updateScore();
     updateTimer();
-    questionContainerElement.classList.remove('hide');
-    previousbutton.classList.remove('hide');
-    nextButton.classList.add('hide');
+    questionContainerElement.classList.remove("hide");
+    previousButton.classList.add("hide");
+    nextButton.classList.add("hide");
     showQuestion(shuffledQuestions[currentQuestionIndex]);
     startTimer();
     updateProgressBar();
@@ -82,22 +82,16 @@ function startQuiz() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question;
-    answerButtonsElement.innerHTML = '';
-    question.answers.forEach(answer => {
-        const button = document.createElement('button');
+    answerButtonsElement.innerHTML = "";
+    question.answers.forEach((answer) => {
+        const button = document.createElement("button");
         button.innerText = answer.text;
-        button.classList.add('btn');
-        button.addEventListener('click', () => {
-            answer = selectAnswer(answer)
-        });
+        button.classList.add("btn");
+        button.addEventListener("click", () => selectAnswer(answer));
         answerButtonsElement.appendChild(button);
     });
-    button.addEventListener("change", () => {
-        if (answer.value != "") {
-            button.style.display = 'block';
-        }
-    })
 }
+
 
 function selectAnswer(answer) {
     if (answer.correct) {
@@ -105,7 +99,7 @@ function selectAnswer(answer) {
         updateScore();
     }
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove('hide');
+        nextButton.classList.remove("hide");
     } else {
         endQuiz();
     }
@@ -116,7 +110,8 @@ function updateScore() {
 }
 
 function updateProgressBar() {
-    const progressPercentage = ((currentQuestionIndex + 1) / shuffledQuestions.length) * 100;
+    const progressPercentage =
+        ((currentQuestionIndex + 1) / shuffledQuestions.length) * 100;
     progressBar.style.width = `${progressPercentage}%`;
 }
 
@@ -139,35 +134,50 @@ function endQuiz() {
     clearInterval(timerId);
     saveHighScore(score);
     showHighScores();
+    questionContainerElement.classList.add("hide");
+    previousButton.classList.add("hide");
+    nextButton.classList.add("hide");
 }
 
 function saveHighScore(score) {
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     highScores.push(score);
-    localStorage.setItem('highScores', JSON.stringify(highScores));
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
 function showHighScores() {
-    highScoresList.innerHTML = '';
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    highScoresList.innerHTML = "";
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     highScores.sort((a, b) => b - a);
-    highScores.forEach(score => {
-        const li = document.createElement('li');
+    highScores.forEach((score) => {
+        const li = document.createElement("li");
         li.innerText = score;
         highScoresList.appendChild(li);
     });
 }
-previousbutton.addEventListener('click', () => {
-    currentQuestionIndex--;
-    previousbutton.classList.add('hide');
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
-    updateProgressBar();
+
+previousButton.addEventListener("click", () => {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+        updateProgressBar();
+        nextButton.classList.add("hide");
+        if (currentQuestionIndex === 0) {
+            previousButton.classList.add("hide");
+        }
+    }
 });
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    nextButton.classList.add('hide');
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
-    updateProgressBar();
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < shuffledQuestions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+        updateProgressBar();
+        previousButton.classList.remove("hide");
+        if (currentQuestionIndex === shuffledQuestions.length - 1) {
+            nextButton.classList.add("hide");
+        }
+    }
 });
 
 startQuiz();

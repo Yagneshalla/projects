@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+    /* background-color: black; */
+}
+
+#main_container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-image: url(img/background.avif);
+    align-items: center;
+    justify-content: center;
+}
+
+#movie_title{
+    font-family: "Matemasie", sans-serif;
+    font-style: normal;
+    margin-top: 90px;
+    background-color: #2f8d46;
+    background-image: url("img/text.jpg");
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 62px;
+    font-weight: bold;
+    font-weight: 800;
+}
+.movieLogo {
+    font-family: "Matemasie", sans-serif;
+    background-color: #2f8d46;
+    background-image: url("img/text.jpg");
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    font-weight: bold;
+    font-weight: 400;
+
+}
+@media (max-width:465px){
+    #movie_title{
+        font-family: "Matemasie", sans-serif;
+        font-style: normal;
+        margin-top: 50px;
+        align-items: center;
+        background-color: #2f8d46;
+        background-image: url("img/bg.avif");
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 40px;
+        font-weight: bold;
+        font-weight: 600; 
+    } 
+    #description{
+       font-size: 14px; 
+    }
+
+    
+}
+
+#description {
+    margin-top: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px; 
+    color: rgba(19, 12, 1, 0.705);
+}
+
+@media (max-width:465px){
+    #movie_title{
+        font-family: "Matemasie", sans-serif;
+        font-style: normal;
+        margin-top: 80px;
+        /* margin-top: 20px; */
+        align-items: center;
+        background-color: #2f8d46;
+        background-image: url("img/bg.avif");
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 40px;
+        font-weight: bold;
+        font-weight: 600; 
+    } 
+    #description{
+       font-size: 18px; 
+    }
+
+    
+}
+
+#Search_input,
+#search_btn {
+    margin-top: 20px;
+    max-width: 600px;
+    margin-bottom: 70px;
+}
+
+#movieCards{
+    margin-top: 50px;
+}
+.movieCard {
+    background: linear-gradient(135deg, #1f1c2c, #32b8da); 
+    border: none;
+    /* max-width: 300px; */
+    /* max-height: 450px; */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.movieCard:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7); 
+}
+
+.moviePoster {
+    border-radius: 10px;    
+    /* max-width: 300px; */
+    /* max-height: 100px; */
+    /* object-fit: cover; */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.moviePoster:hover {
+    transform: scale(1.1); 
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 20px;
+    color: #FFF;
+}
+
+.card-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: #DDD; 
+}
+
+#movieImg {
+    max-width: 100%;
+    border-radius: 10px;
+}
+#rating-title{
+    color: #FFF;
+    font-size: 1.4rem;
+    font-weight: 400;
+    /* margin-bottom: 20px; */
+}
+.stars{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.stars label{
+    font-size: 1.8rem;
+    color:gold;
+    cursor: pointer;
+}
+.stars input[type="radio"]{
+    display: none;
+}
+.stars input[type="radio"]:Checked ~ label{
+    color: red;
+} 
+.stars label:hover,
+.stars label:hover~label{
+    color:blue;
+}
+.ratingValueAfter{
+    color: #FFF;
+    font-size: 1.4rem;
+    font-weight: 400;
+    /* margin-bottom: 20px; */
+}
+
+#no-favorite{
+   color: white;
+   margin-top: 25px;
+   font-size: 24px;
+   text-align: center;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#close-mark{
+    color: red;
+    font-size: 30px;
+    border: none;
+    /* padding: 10px 10px 10px 10px; */
+    /* border-radius: 50%; */
+    /* background-color: #1f1c2c; */
+}
+.myModal{
+    background-color: black;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* height: 100%; */
+}
+.modal-title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(230, 13, 13);
+}
+.review-text{
+    /* max-width: 600px; */
+    /* max-height: 700px; */
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    /* text-align: start; */
+    color: #DDD;
+    border-radius: 10px;
+    background-color: black;
+}
+@media (max-width=400px) {
+    .modal-title{
+        font-size: 8px;
+    } 
+}
+
+/* \\styling for review page\\ */
+body {
+    background-color: #1c1c1c;
+    font-family: 'Arial', sans-serif;
+    color: #f8f9fa;
+}
+
+#reviewsCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.reviewCard {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.reviewCard:hover {
+    transform: translateY(-5px);
+}
+
+.reviewCard .card-body {
+    padding: 1.5rem;
+}
+.reviewCard .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff5733;
+    margin-bottom: 0.75rem;
+}
+
+.reviewCard .card-text {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: #312eee;
+}
+
+#no-reviews {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff5733;
+    margin-top: 2rem;
+    text-align: center;
+}
